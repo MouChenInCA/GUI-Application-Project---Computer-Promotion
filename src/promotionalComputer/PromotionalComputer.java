@@ -10,7 +10,7 @@ import java.time.Period;
 
 /**
  *
- * @author Mou Chen
+ * @author Mou Chen 200385734
  */
 public class PromotionalComputer {
    
