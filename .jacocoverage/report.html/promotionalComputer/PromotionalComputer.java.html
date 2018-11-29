@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PromotionalComputer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Assignment2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">promotionalComputer</a> &gt; <span class="el_source">PromotionalComputer.java</span></div><h1>PromotionalComputer.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package promotionalComputer;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+/**
+ *
+ * @author Mou Chen
+ */
+public class PromotionalComputer {
+   
+
+    private int idNumber, stock, price;
+    private String brand;
+    private LocalDate manufactureDate;
+
+<span class="fc" id="L22">    public PromotionalComputer(int idNumber, int stock, int price, String brand, LocalDate manufactureDate) {</span>
+<span class="fc" id="L23">        setIdNumber(idNumber);</span>
+<span class="fc" id="L24">        setStock(stock);</span>
+<span class="fc" id="L25">        setPrice(price);</span>
+<span class="fc" id="L26">        setBrand(brand);</span>
+<span class="fc" id="L27">        setManufactureDate(manufactureDate);</span>
+<span class="fc" id="L28">    }</span>
+
+    
+    /**
+     * 
+     * @return the idNumber of book
+     */
+    public int getIdNumber() {
+<span class="fc" id="L36">        return idNumber;</span>
+    }
+    
+    
+    /**
+     * set the idNumber number and validate it.
+     * @param idNumber 
+     */
+    public void setIdNumber(int idNumber) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (idNumber &gt; 0)</span>
+<span class="fc" id="L46">            this.idNumber = idNumber;</span>
+        else
+<span class="fc" id="L48">            throw new IllegalArgumentException(&quot;ID Number  must be greater than 0&quot;);</span>
+<span class="fc" id="L49">    }</span>
+
+
+    /**
+     * 
+     * @return the number of stock.
+     */
+    public int getStock() {
+<span class="fc" id="L57">        return stock;</span>
+    }
+    
+    /**
+     * validate the # of stock and it should be between 0-500.
+     * @param stock 
+     */
+    public void setStock(int stock) {
+<span class="fc bfc" id="L65" title="All 4 branches covered.">        if ( stock &gt;= 0 &amp;&amp; stock&lt;=500)</span>
+<span class="fc" id="L66">            this.stock = stock;</span>
+        else
+<span class="fc" id="L68">            throw new IllegalArgumentException(&quot;stock  must be between 0-500&quot;);</span>
+<span class="fc" id="L69">    }</span>
+
+    
+    /**
+     * 
+     * @return the price of computer.
+     */
+    public int getPrice() {
+<span class="fc" id="L77">        return price;</span>
+    }
+    
+    /**
+     * validate the price of computer should &gt; 0.
+     * @param price 
+     */
+    public void setPrice(int price) {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (price &gt; 0)</span>
+<span class="fc" id="L86">            this.price = price;  </span>
+        else
+<span class="fc" id="L88">            throw new IllegalArgumentException(&quot;price must be greater than  0&quot;);</span>
+<span class="fc" id="L89">    }</span>
+
+    /**
+     * 
+     * @return brand name
+     */
+    public String getBrand() {
+<span class="fc" id="L96">        return brand;</span>
+    }
+    
+    /**
+     * The name of the brand should be words start with upper case letter.
+     * @param brand 
+     */
+    public void setBrand(String brand) {       
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if (brand.matches(&quot;[A-Z][a-z]*&quot;))</span>
+<span class="fc" id="L105">            this.brand = brand;</span>
+        else
+<span class="fc" id="L107">            throw new IllegalArgumentException(&quot;Brand name must start with an upper case letter&quot;);</span>
+<span class="fc" id="L108">    }</span>
+
+
+
+    public LocalDate getManufactureDate() {
+<span class="fc" id="L113">        return manufactureDate;</span>
+    }
+    
+    /**
+     * This method returns the year of product based on the date of manufacture passed in as an argument
+     * @param manufactureDate
+     */
+    private int getYear(LocalDate manufactureDate)
+    {
+<span class="fc" id="L122">        return Period.between(manufactureDate, LocalDate.now()).getYears();</span>
+    }
+    
+    public int getYear()
+    {
+<span class="fc" id="L127">        return getYear(manufactureDate); </span>
+    }
+    
+    /**
+     * This method validates that the computer is 0-6 years and sets the
+     * manufactureDate instance variable
+     * @param manufactureDate - a LocalDate object describing the date the computer was made
+     */
+    public void setManufactureDate(LocalDate manufactureDate) {
+<span class="fc" id="L136">        int year = getYear(manufactureDate);</span>
+<span class="fc bfc" id="L137" title="All 4 branches covered.">        if (year &gt;= 0 &amp;&amp; year &lt;=6 )</span>
+<span class="fc" id="L138">            this.manufactureDate = manufactureDate;</span>
+<span class="fc" id="L139">        else throw new IllegalArgumentException(&quot;computer must be made in 6 years &quot;);</span>
+<span class="fc" id="L140">    }</span>
+    
+    
+    /**
+     * This method returns the discount based on the year after manufacture and stock .
+     * @param stock
+     * @param price
+     * @return 
+     */
+    private int getDiscount(int stock ,int price)
+    {
+<span class="fc" id="L151">        int year = getYear(manufactureDate);</span>
+<span class="fc" id="L152">        int discount=(int) Math.ceil(price*(year*0.03+ stock*0.001));</span>
+<span class="fc" id="L153">        return discount;</span>
+    }
+
+    public int getDiscount()
+    {
+<span class="fc" id="L158">        return getDiscount(stock , price); </span>
+    }
+    
+        /**
+     * This method returns the pprice now based on the discount.
+     * @param birthday 
+     */
+    private int getPriceNow(int price,int stock)
+    {
+        
+<span class="fc" id="L168">        int priceNow = price-getDiscount(stock,price);</span>
+<span class="fc" id="L169">        return priceNow;</span>
+    }
+    
+    public int getPriceNow()
+    {
+<span class="fc" id="L174">        return getPriceNow( price,stock); </span>
+    }
+    
+    
+}
+    
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
