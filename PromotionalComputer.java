@@ -15,12 +15,11 @@ import java.time.Period;
 public class PromotionalComputer {
    
 
-    private int idNumber, stock;
-    double price;
+    private int idNumber, stock, price;
     private String brand;
     private LocalDate manufactureDate;
 
-    public PromotionalComputer(int idNumber, int stock, double price, String brand, LocalDate manufactureDate) {
+    public PromotionalComputer(int idNumber, int stock, int price, String brand, LocalDate manufactureDate) {
         setIdNumber(idNumber);
         setStock(stock);
         setPrice(price);
@@ -74,7 +73,7 @@ public class PromotionalComputer {
      * 
      * @return the price of computer.
      */
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
     
@@ -82,7 +81,7 @@ public class PromotionalComputer {
      * validate the price of computer should > 0.
      * @param price 
      */
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         if (price > 0)
             this.price = price;  
         else
@@ -147,43 +146,35 @@ public class PromotionalComputer {
      * @param price
      * @return 
      */
-    private double getDiscount(int stock ,double price)
+    private int getDiscount(int stock ,int price)
     {
         int year = getYear(manufactureDate);
-        double discount=(double) Math.ceil(price*(year*0.03+ stock*0.001));
+        int discount=(int) Math.ceil(price*(year*0.03+ stock*0.001));
         return discount;
     }
 
-    public double getDiscount()
+    public int getDiscount()
     {
         return getDiscount(stock , price); 
     }
     
         /**
-     * This method returns the price now based on the discount.
+     * This method returns the pprice now based on the discount.
      * @param birthday 
      */
-    private double getPriceNow(double price,int stock)
+    private int getPriceNow(int price,int stock)
     {
         
-        double priceNow = price-getDiscount(stock,price);
+        int priceNow = price-getDiscount(stock,price);
         return priceNow;
     }
     
-    public double getPriceNow()
+    public int getPriceNow()
     {
         return getPriceNow( price,stock); 
     }
     
-    @Override
-    public String toString()
-    {
-        return String.format("The %s computer #%d is now have $%d discount and price for$%d ", brand, idNumber, this.getPriceNow(),this.getPriceNow
-        ());
-    }
-    
     
 }
-
     
 

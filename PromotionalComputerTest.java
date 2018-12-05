@@ -35,7 +35,7 @@ public class PromotionalComputerTest {
     
     @Before
     public void setUp() {
-        validPromotionalComputer = new PromotionalComputer(5, 233, 999.99, "Dell", LocalDate.of(2015,Month.MARCH,10));
+        validPromotionalComputer = new PromotionalComputer(5, 233, 999, "Dell", LocalDate.of(2015,Month.MARCH,10));
     }
     
     @After
@@ -138,9 +138,9 @@ public class PromotionalComputerTest {
      */
     @Test
     public void testGetPrice() {
-        double expResult = 999.99;
-        double result = validPromotionalComputer.getPrice();
-        assertEquals(expResult,result,0 );
+        int expResult = 999;
+        int result = validPromotionalComputer.getPrice();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -148,9 +148,9 @@ public class PromotionalComputerTest {
      */
     @Test
     public void testSetPrice() {
-        validPromotionalComputer.setPrice(422.22);
-        double result = validPromotionalComputer.getPrice();
-        assertEquals(422.22, result, 0);
+        validPromotionalComputer.setPrice(422);
+        int result = validPromotionalComputer.getPrice();
+        assertEquals(422,result); 
     }
     
     /**
@@ -277,9 +277,9 @@ public class PromotionalComputerTest {
     @Test
     public void testGetDiscount() {
         System.out.println("getDiscount");
-        double expResult = 323.00;
-        double result = validPromotionalComputer.getDiscount();
-        assertEquals(expResult, result, 0);
+        int expResult = 323;
+        int result = validPromotionalComputer.getDiscount();
+        assertEquals(expResult, result);
         
     }
 
@@ -289,9 +289,9 @@ public class PromotionalComputerTest {
     @Test
     public void testGetPriceNow() {
         System.out.println("getPriceNow");
-        double expResult = 676.99;
-        double result = validPromotionalComputer.getPriceNow();
-        assertEquals(expResult, result,0);
+        int expResult = 676;
+        int result = validPromotionalComputer.getPriceNow();
+        assertEquals(expResult, result);
         
     }
     
