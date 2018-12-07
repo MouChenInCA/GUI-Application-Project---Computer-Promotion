@@ -5,6 +5,7 @@
  */
 package promotionalComputer;
 
+
 import java.time.LocalDate;
 import java.time.Month;
 import org.junit.After;
@@ -35,7 +36,7 @@ public class PromotionalComputerTest {
     
     @Before
     public void setUp() {
-        validPromotionalComputer = new PromotionalComputer(5, 233, 999.99, "Dell", LocalDate.of(2015,Month.MARCH,10));
+        validPromotionalComputer = new PromotionalComputer(5, 233, 999.99, "Dell" ,LocalDate.of(2015,Month.MARCH,10));
     }
     
     @After
@@ -63,7 +64,7 @@ public class PromotionalComputerTest {
     }
     
     /**
-     * Test of setBrand method, of class PromotionalComputer.
+     * Test of setIdNumber method, of class PromotionalComputer.
      */
     @Test
     public void testSetIdNumberInvalid()
@@ -100,7 +101,7 @@ public class PromotionalComputerTest {
     }
 
     /**
-     * Test of setBrand method, of class PromotionalComputer.
+     * Test of setStockInvalid method, of class PromotionalComputer.
      */
     @Test
     public void testSetStockInvalid()
@@ -117,7 +118,7 @@ public class PromotionalComputerTest {
     }
     
     /**
-     * Test of setBrand method, of class PromotionalComputer.
+     * Test of setStockInvalid method, of class PromotionalComputer.
      */
     @Test
     public void testSetStockInvalid2()
@@ -154,7 +155,7 @@ public class PromotionalComputerTest {
     }
     
     /**
-     * Test of setBrand method, of class PromotionalComputer.
+     * Test of setPrice method, of class PromotionalComputer.
      */
     @Test
     public void testSetPriceInvalid()
@@ -169,6 +170,7 @@ public class PromotionalComputerTest {
             System.out.println(e.getMessage());
         }
     }
+    
 
     /**
      * Test of getBrand method, of class PromotionalComputer.
@@ -207,6 +209,8 @@ public class PromotionalComputerTest {
             System.out.println(e.getMessage());
         }
     }
+    
+
 
     /**
      * Test of getManufactureDate method, of class PromotionalComputer.
@@ -256,6 +260,7 @@ public class PromotionalComputerTest {
         }
     }
     
+    
     /**
      * Test of SetManufactureDate method, of class PromotionalComputer.
      */
@@ -294,5 +299,18 @@ public class PromotionalComputerTest {
         assertEquals(expResult, result,0);
         
     }
+    
+     /**
+     * Test of toString method, of class PromotionalComputer.
+     */
+    @Test
+    public void testToString()
+    {
+        System.out.println("toString ");
+        String expResult = String.format("The ID number of this Dell computer is 5.\nDiscount:$323.00; Price Now: $676.99 ! ");
+        String result = validPromotionalComputer.toString();
+    }
+    
+    
     
 }

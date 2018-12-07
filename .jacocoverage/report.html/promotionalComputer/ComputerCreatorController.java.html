@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ComputerCreatorController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Assignment2&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">promotionalComputer</a> &gt; <span class="el_source">ComputerCreatorController.java</span></div><h1>ComputerCreatorController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package promotionalComputer;
+
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.RadioButton;
+
+/**
+ * FXML Controller class
+ *
+ * @author Mou Chen
+ */
+<span class="nc" id="L27">public class ComputerCreatorController implements Initializable {</span>
+    
+    @FXML
+    private TextField idTextField;
+
+    @FXML
+    private TextField stockTextField;
+
+    @FXML
+    private TextField priceTextField;
+
+    @FXML
+    private DatePicker productDatePicker;
+   
+    @FXML
+    private ComboBox&lt;String&gt; brandChioceBox;
+
+    @FXML
+    private Label sumMsgLabel;
+
+    @FXML
+    private Label eroMsgLabel;
+    
+    @FXML
+    private RadioButton trueRadioBtn;
+
+    @FXML
+    private RadioButton falseRadioBtn;
+    
+    @FXML
+    private ImageView brandImageView;
+
+    @FXML
+    private ImageView touchScreenImageView;
+    
+    @FXML
+    private Button getPriceBtn;
+    
+   
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //configure the choicebox
+<span class="nc" id="L73">        brandChioceBox.getItems().add(&quot;Dell&quot;);</span>
+<span class="nc" id="L74">        brandChioceBox.getItems().add(&quot;Acer&quot;);</span>
+<span class="nc" id="L75">        brandChioceBox.getItems().add(&quot;Lenovo&quot;);</span>
+<span class="nc" id="L76">        brandChioceBox.getItems().add(&quot;Hp&quot;);</span>
+<span class="nc" id="L77">        brandChioceBox.getItems().add(&quot;Asus&quot;);</span>
+<span class="nc" id="L78">        brandChioceBox.getItems().add(&quot;Apple&quot;);</span>
+        
+<span class="nc" id="L80">        eroMsgLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L81">        sumMsgLabel.setText(&quot;&quot;);      </span>
+        
+
+<span class="nc" id="L84">    }   </span>
+    
+    @FXML
+    public void brandChanger()
+    {
+<span class="nc" id="L89">        String brand = brandChioceBox.getValue();</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (brand.equalsIgnoreCase(&quot;dell&quot;))</span>
+<span class="nc" id="L91">            brandImageView.setImage(new Image(&quot;./images/dell.png&quot;));</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;acer&quot;))</span>
+<span class="nc" id="L93">            brandImageView.setImage(new Image(&quot;./images/acer.jpg&quot;));</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;Lenovo&quot;))</span>
+<span class="nc" id="L95">            brandImageView.setImage(new Image(&quot;./images/lenovo.jpg&quot;));</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;hp&quot;))</span>
+<span class="nc" id="L97">            brandImageView.setImage(new Image(&quot;./images/hp.jpg&quot;));</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;ausu&quot;))</span>
+            
+<span class="nc" id="L100">            brandImageView.setImage(new Image(&quot;./images/asus.jpg&quot;));</span>
+        else
+<span class="nc" id="L102">            brandImageView.setImage(new Image(&quot;./images/apple.jpg&quot;));</span>
+<span class="nc" id="L103">    }</span>
+
+  @FXML    
+
+    public void setTrue()
+    {
+<span class="nc" id="L109">        trueRadioBtn.setSelected(true);</span>
+<span class="nc" id="L110">        falseRadioBtn.setSelected(false);</span>
+<span class="nc" id="L111">        touchScreenImageView.setImage(new Image(&quot;./images/touch screen.jpg&quot;));</span>
+<span class="nc" id="L112">    }</span>
+    
+    public void setFalse()
+    {
+<span class="nc" id="L116">        trueRadioBtn.setSelected(false);</span>
+<span class="nc" id="L117">        falseRadioBtn.setSelected(true);</span>
+<span class="nc" id="L118">        touchScreenImageView.setImage(null);</span>
+<span class="nc" id="L119">    }</span>
+    
+    
+    
+    @FXML
+    public void getPriceBtnPushed()
+    {
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (this.productDatePicker.getValue() != null)</span>
+        {
+<span class="nc bnc" id="L128" title="All 4 branches missed.">            if(trueRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)||falseRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)){</span>
+            try{
+<span class="nc" id="L130">                PromotionalComputer newPromotionalComputer = new PromotionalComputer(</span>
+<span class="nc" id="L131">                        Integer.valueOf(this.idTextField.getText()),</span>
+<span class="nc" id="L132">                        Integer.valueOf(this.stockTextField.getText()),</span>
+<span class="nc" id="L133">                        Double.parseDouble(this.priceTextField.getText()),</span>
+<span class="nc" id="L134">                        this.brandChioceBox.getValue(),</span>
+<span class="nc" id="L135">                        this.productDatePicker.getValue());</span>
+<span class="nc" id="L136">                System.out.println(newPromotionalComputer);</span>
+<span class="nc" id="L137">                eroMsgLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L138">                sumMsgLabel.setText(newPromotionalComputer.toString());</span>
+<span class="nc" id="L139">            } catch (IllegalArgumentException e)</span>
+            {
+                //eroMsgLabel.setText(&quot;Invalid input&quot;);
+<span class="nc" id="L142">                sumMsgLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L143">                eroMsgLabel.setText(String.valueOf(e.getMessage()));</span>
+              
+<span class="nc" id="L145">            }            </span>
+        }
+        }
+        else
+        {
+<span class="nc" id="L150">            eroMsgLabel.setText(&quot;You need to set the product date!&quot;);</span>
+        }
+    
+<span class="nc" id="L153">    }</span>
+}
+
+    
+
+            
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

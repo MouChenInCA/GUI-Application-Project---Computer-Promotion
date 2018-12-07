@@ -5,6 +5,7 @@
  */
 package promotionalComputer;
 
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -20,7 +21,7 @@ public class PromotionalComputer {
     private String brand;
     private LocalDate manufactureDate;
 
-    public PromotionalComputer(int idNumber, int stock, double price, String brand, LocalDate manufactureDate) {
+    public PromotionalComputer(int idNumber, int stock, double price,  String brand, LocalDate manufactureDate) {
         setIdNumber(idNumber);
         setStock(stock);
         setPrice(price);
@@ -89,6 +90,7 @@ public class PromotionalComputer {
             throw new IllegalArgumentException("price must be greater than  0");
     }
 
+
     /**
      * 
      * @return brand name
@@ -108,8 +110,7 @@ public class PromotionalComputer {
             throw new IllegalArgumentException("Brand name must start with an upper case letter");
     }
 
-
-
+ 
     public LocalDate getManufactureDate() {
         return manufactureDate;
     }
@@ -161,7 +162,9 @@ public class PromotionalComputer {
     
         /**
      * This method returns the price now based on the discount.
-     * @param birthday 
+     * @param price
+     * @param stock
+     * @return 
      */
     private double getPriceNow(double price,int stock)
     {
@@ -178,7 +181,7 @@ public class PromotionalComputer {
     @Override
     public String toString()
     {
-        return String.format("The %s computer #%d is now have $%d discount and price for$%d ", brand, idNumber, this.getPriceNow(),this.getPriceNow
+        return String.format("The ID number of this %s computer is %s.\nDiscount:$%.2f; Price Now: $%.2f ! ", brand, idNumber,this.getDiscount(),this.getPriceNow
         ());
     }
     

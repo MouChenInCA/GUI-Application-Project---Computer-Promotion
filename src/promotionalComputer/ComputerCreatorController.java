@@ -5,21 +5,20 @@
  */
 package promotionalComputer;
 
+
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.RadioButton;
+
 /**
  * FXML Controller class
  *
@@ -38,12 +37,9 @@ public class ComputerCreatorController implements Initializable {
 
     @FXML
     private DatePicker productDatePicker;
-
+   
     @FXML
-    private ChoiceBox<String> brandChioceBox;
-
-    @FXML
-    private ColorPicker compColorPicker;
+    private ComboBox<String> brandChioceBox;
 
     @FXML
     private Label sumMsgLabel;
@@ -56,13 +52,17 @@ public class ComputerCreatorController implements Initializable {
 
     @FXML
     private RadioButton falseRadioBtn;
+    
+    @FXML
+    private ImageView brandImageView;
 
     @FXML
-    private ImageView imageView;
-
+    private ImageView touchScreenImageView;
+    
     @FXML
     private Button getPriceBtn;
-    private Image image;
+    
+   
 
     /**
      * Initializes the controller class.
@@ -71,69 +71,107 @@ public class ComputerCreatorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //configure the choicebox
         brandChioceBox.getItems().add("Dell");
-        brandChioceBox.getItems().add("ACER");
+        brandChioceBox.getItems().add("Acer");
         brandChioceBox.getItems().add("Lenovo");
-        brandChioceBox.getItems().add("HP");
-        brandChioceBox.getItems().add("ASUS");
+        brandChioceBox.getItems().add("Hp");
+        brandChioceBox.getItems().add("Asus");
         brandChioceBox.getItems().add("Apple");
         
         eroMsgLabel.setText("");
-        sumMsgLabel.setText("");        
-    }    
+        sumMsgLabel.setText("");      
+        
+
+    }   
     
+    /**
+     * brand changer method is use to change the brand image during chooseing different brand.
+     */
     @FXML
     public void brandChanger()
     {
         String brand = brandChioceBox.getValue();
         if (brand.equalsIgnoreCase("dell"))
-            imageView.setImage(new Image("./images/dell.png"));
+            brandImageView.setImage(new Image("./images/dell.png"));
         else if (brand.equalsIgnoreCase("acer"))
-            imageView.setImage(new Image("./images/acer.jpg"));
+            brandImageView.setImage(new Image("./images/acer.jpg"));
         else if (brand.equalsIgnoreCase("Lenovo"))
-            imageView.setImage(new Image("./images/lenovo.jpg"));
+            brandImageView.setImage(new Image("./images/lenovo.jpg"));
         else if (brand.equalsIgnoreCase("hp"))
-            imageView.setImage(new Image("./images/hp.jpg"));
+            brandImageView.setImage(new Image("./images/hp.jpg"));
         else if (brand.equalsIgnoreCase("ausu"))
             
-            imageView.setImage(new Image("./images/asus.jpg"));
+            brandImageView.setImage(new Image("./images/asus.jpg"));
         else
-            imageView.setImage(new Image("./images/apple.jpg"));
+            brandImageView.setImage(new Image("./images/apple.jpg"));
     }
+
+    /**
+     * setTrue and setFalse method just use to make sure radio btn can be use correctly.
+     * when trueRadioBtn is true falseRadioBtn should be false. And in the application, there should be a picture shows that the computer is touch screen.
+     * when falseRadioBtn is true trueRadioBtn should be false.
+     */
+  @FXML    
+    public void setTrue()
+    {
+        trueRadioBtn.setSelected(true);
+        falseRadioBtn.setSelected(false);
+        touchScreenImageView.setImage(new Image("./images/touch screen.jpg"));
+    }
+    
+    public void setFalse()
+    {
+        trueRadioBtn.setSelected(false);
+        falseRadioBtn.setSelected(true);
+        touchScreenImageView.setImage(null);
+    }
+    
+    /**
+     * getPriceBtnPushed method just use to get the error message of the input.
+     **/
     
     @FXML
     public void getPriceBtnPushed()
     {
+        //if did not choose a date,there will throw a messaga=e shows date must be chosen.
         if (this.productDatePicker.getValue() != null)
         {
+            //if trueRadioBtn or falseRadioBtn is chosen, countinue. Otherwise throw a error message to prompt user.
+            if(trueRadioBtn.getText().equalsIgnoreCase("true")||falseRadioBtn.getText().equalsIgnoreCase("true")){
+                
+            //try catch block use to get the value of other inputs and validate whether it is filled
             try{
-                PromotionalComputer newPromotionalComputer = new PromotionalComputer(1, 
-                        this.idTextField.getText(),
-                        this.priceTextField.getText(),
-                        this.brandChioceBox.getValue(), 
+                PromotionalComputer newPromotionalComputer = new PromotionalComputer(
+                        Integer.valueOf(this.idTextField.getText()),
+                        Integer.valueOf(this.stockTextField.getText()),
+                        Double.parseDouble(this.priceTextField.getText()),
                         this.brandChioceBox.getValue(),
-                        this.compColorPicker.getValue());
+                        this.productDatePicker.getValue());
+                //print the resulte message
                 System.out.println(newPromotionalComputer);
+                eroMsgLabel.setText("");
+                sumMsgLabel.setText(newPromotionalComputer.toString());
             } catch (IllegalArgumentException e)
             {
-                eroMsgLabel.setText(e.getMessage());
-                
-            }
+                //print the error message catch from Promotionalcomputer.java file.
+                sumMsgLabel.setText("");
+                eroMsgLabel.setText(String.valueOf(e.getMessage()));
+              
+            }            
         }
         else
         {
-            eroMsgLabel.setText("You need to set the birthday");
-            
+            eroMsgLabel.setText("You need to choose whether it is touch screen or not!");
+        }   
         }
-        
-    }
+        else
+        {
+            eroMsgLabel.setText("You need to set the product date!");
+        }
     
-    @FXML
-    public void productDateChoose()
-    {
-        Period period = Period.between(productDatePicker.getValue(), LocalDate.now());
-        
     }
-    
 }
+
+    
+
             
 
