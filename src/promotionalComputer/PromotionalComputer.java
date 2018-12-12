@@ -39,7 +39,7 @@ public class PromotionalComputer {
     }
     
     
-    /**
+      /**
      * set the idNumber number and validate it.
      * @param idNumber 
      */
@@ -187,6 +187,3 @@ public class PromotionalComputer {
     
     
 }
-
-    
-

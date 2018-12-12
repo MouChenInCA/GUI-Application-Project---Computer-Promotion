@@ -80,6 +80,7 @@ public class PromotionalComputerTest {
             System.out.println(e.getMessage());
         }
     }
+    
     /**
      * Test of getStock method, of class PromotionalComputer.
      */

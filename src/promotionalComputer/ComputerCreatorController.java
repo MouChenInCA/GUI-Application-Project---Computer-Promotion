@@ -132,13 +132,12 @@ public class ComputerCreatorController implements Initializable {
     @FXML
     public void getPriceBtnPushed()
     {
-        //if did not choose a date,there will throw a messaga=e shows date must be chosen.
-        if (this.productDatePicker.getValue() != null)
+        if(!validationPassed()){
+            return;
+        }
+        else
         {
-            //if trueRadioBtn or falseRadioBtn is chosen, countinue. Otherwise throw a error message to prompt user.
-            if(trueRadioBtn.getText().equalsIgnoreCase("true")||falseRadioBtn.getText().equalsIgnoreCase("true")){
-                
-            //try catch block use to get the value of other inputs and validate whether it is filled
+             //try catch block use to get the value of other inputs and validate whether it is filled
             try{
                 PromotionalComputer newPromotionalComputer = new PromotionalComputer(
                         Integer.valueOf(this.idTextField.getText()),
@@ -154,22 +153,95 @@ public class ComputerCreatorController implements Initializable {
             {
                 //print the error message catch from Promotionalcomputer.java file.
                 sumMsgLabel.setText("");
-                eroMsgLabel.setText(String.valueOf(e.getMessage()));
-              
+                eroMsgLabel.setText(String.valueOf(e.getMessage()));  
             }            
         }
-        else
+    }
+    
+    public boolean validationPassed(){
+        
+        //validate the empty value of id number, stock and price
+        if (this.idTextField.getText().isEmpty())
         {
-            eroMsgLabel.setText("You need to choose whether it is touch screen or not!");
-        }   
+            sumMsgLabel.setText("");
+            eroMsgLabel.setText("ID number cannot be empty"); 
+            return false;
         }
-        else
+        else{
+            try{
+                Integer.valueOf(idTextField.getText());
+            }
+            catch(Exception e){
+                sumMsgLabel.setText("");
+                eroMsgLabel.setText("ID number should be numbers"); 
+                return false;
+            }
+        }
+        
+        if (this.stockTextField.getText().isEmpty())
         {
+            sumMsgLabel.setText("");
+            eroMsgLabel.setText("stock number cannot be empty"); 
+            return false;
+        }
+        else{
+            try{
+                Integer.valueOf(stockTextField.getText());
+            }
+            catch(Exception e){
+                sumMsgLabel.setText("");
+                eroMsgLabel.setText("stock should be a whole number"); 
+                return false;
+            }
+        }
+        
+        if (this.priceTextField.getText().isEmpty())
+        {
+            sumMsgLabel.setText("");
+            eroMsgLabel.setText("Price cannot be empty"); 
+            return false;
+        }
+        else{
+            try{
+                Double.valueOf(priceTextField.getText());
+            }
+            catch(Exception e){
+                sumMsgLabel.setText("");
+                eroMsgLabel.setText("The price must contain numbers only"); 
+                return false;
+            }
+        }
+        
+        //if did not choose a date,there will throw a message shows date must be chosen.
+        if (this.productDatePicker.getValue() == null)
+        {
+            sumMsgLabel.setText("");
             eroMsgLabel.setText("You need to set the product date!");
         }
+        
+        //if did not choose a brand,there will throw a message shows brand must be chosen.
+        if (this.brandChioceBox.getValue() == null)
+        {
+            sumMsgLabel.setText("");
+            eroMsgLabel.setText("You need choose a brand for the computer!");
+        }
+        
+        //if trueRadioBtn or falseRadioBtn is chosen, countinue. Otherwise throw a error message to prompt user.
+        try{
+            if(trueRadioBtn.getText().equalsIgnoreCase("true")||falseRadioBtn.getText().equalsIgnoreCase("true")){ 
+            }
+        }
+        catch(Exception e)
+                {
+                    sumMsgLabel.setText("");
+                    eroMsgLabel.setText("You need to choose whether it is touch screen or not!");
+                }  
+        
+        return true;
     
     }
 }
+
 
     
 

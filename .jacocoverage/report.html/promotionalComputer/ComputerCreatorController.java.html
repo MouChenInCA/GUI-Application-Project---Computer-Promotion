@@ -83,74 +83,92 @@ import javafx.scene.control.RadioButton;
 
 <span class="nc" id="L84">    }   </span>
     
+    /**
+     * brand changer method is use to change the brand image during chooseing different brand.
+     */
     @FXML
     public void brandChanger()
     {
-<span class="nc" id="L89">        String brand = brandChioceBox.getValue();</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (brand.equalsIgnoreCase(&quot;dell&quot;))</span>
-<span class="nc" id="L91">            brandImageView.setImage(new Image(&quot;./images/dell.png&quot;));</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;acer&quot;))</span>
-<span class="nc" id="L93">            brandImageView.setImage(new Image(&quot;./images/acer.jpg&quot;));</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;Lenovo&quot;))</span>
-<span class="nc" id="L95">            brandImageView.setImage(new Image(&quot;./images/lenovo.jpg&quot;));</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;hp&quot;))</span>
-<span class="nc" id="L97">            brandImageView.setImage(new Image(&quot;./images/hp.jpg&quot;));</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;ausu&quot;))</span>
+<span class="nc" id="L92">        String brand = brandChioceBox.getValue();</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (brand.equalsIgnoreCase(&quot;dell&quot;))</span>
+<span class="nc" id="L94">            brandImageView.setImage(new Image(&quot;./images/dell.png&quot;));</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;acer&quot;))</span>
+<span class="nc" id="L96">            brandImageView.setImage(new Image(&quot;./images/acer.jpg&quot;));</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;Lenovo&quot;))</span>
+<span class="nc" id="L98">            brandImageView.setImage(new Image(&quot;./images/lenovo.jpg&quot;));</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;hp&quot;))</span>
+<span class="nc" id="L100">            brandImageView.setImage(new Image(&quot;./images/hp.jpg&quot;));</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        else if (brand.equalsIgnoreCase(&quot;ausu&quot;))</span>
             
-<span class="nc" id="L100">            brandImageView.setImage(new Image(&quot;./images/asus.jpg&quot;));</span>
+<span class="nc" id="L103">            brandImageView.setImage(new Image(&quot;./images/asus.jpg&quot;));</span>
         else
-<span class="nc" id="L102">            brandImageView.setImage(new Image(&quot;./images/apple.jpg&quot;));</span>
-<span class="nc" id="L103">    }</span>
+<span class="nc" id="L105">            brandImageView.setImage(new Image(&quot;./images/apple.jpg&quot;));</span>
+<span class="nc" id="L106">    }</span>
 
+    /**
+     * setTrue and setFalse method just use to make sure radio btn can be use correctly.
+     * when trueRadioBtn is true falseRadioBtn should be false. And in the application, there should be a picture shows that the computer is touch screen.
+     * when falseRadioBtn is true trueRadioBtn should be false.
+     */
   @FXML    
-
     public void setTrue()
     {
-<span class="nc" id="L109">        trueRadioBtn.setSelected(true);</span>
-<span class="nc" id="L110">        falseRadioBtn.setSelected(false);</span>
-<span class="nc" id="L111">        touchScreenImageView.setImage(new Image(&quot;./images/touch screen.jpg&quot;));</span>
-<span class="nc" id="L112">    }</span>
+<span class="nc" id="L116">        trueRadioBtn.setSelected(true);</span>
+<span class="nc" id="L117">        falseRadioBtn.setSelected(false);</span>
+<span class="nc" id="L118">        touchScreenImageView.setImage(new Image(&quot;./images/touch screen.jpg&quot;));</span>
+<span class="nc" id="L119">    }</span>
     
     public void setFalse()
     {
-<span class="nc" id="L116">        trueRadioBtn.setSelected(false);</span>
-<span class="nc" id="L117">        falseRadioBtn.setSelected(true);</span>
-<span class="nc" id="L118">        touchScreenImageView.setImage(null);</span>
-<span class="nc" id="L119">    }</span>
+<span class="nc" id="L123">        trueRadioBtn.setSelected(false);</span>
+<span class="nc" id="L124">        falseRadioBtn.setSelected(true);</span>
+<span class="nc" id="L125">        touchScreenImageView.setImage(null);</span>
+<span class="nc" id="L126">    }</span>
     
-    
+    /**
+     * getPriceBtnPushed method just use to get the error message of the input.
+     **/
     
     @FXML
     public void getPriceBtnPushed()
     {
-<span class="nc bnc" id="L126" title="All 2 branches missed.">        if (this.productDatePicker.getValue() != null)</span>
+        //if did not choose a date,there will throw a messaga=e shows date must be chosen.
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        if (this.productDatePicker.getValue() != null)</span>
         {
-<span class="nc bnc" id="L128" title="All 4 branches missed.">            if(trueRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)||falseRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)){</span>
+            //if trueRadioBtn or falseRadioBtn is chosen, countinue. Otherwise throw a error message to prompt user.
+<span class="nc bnc" id="L139" title="All 4 branches missed.">            if(trueRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)||falseRadioBtn.getText().equalsIgnoreCase(&quot;true&quot;)){</span>
+                
+            //try catch block use to get the value of other inputs and validate whether it is filled
             try{
-<span class="nc" id="L130">                PromotionalComputer newPromotionalComputer = new PromotionalComputer(</span>
-<span class="nc" id="L131">                        Integer.valueOf(this.idTextField.getText()),</span>
-<span class="nc" id="L132">                        Integer.valueOf(this.stockTextField.getText()),</span>
-<span class="nc" id="L133">                        Double.parseDouble(this.priceTextField.getText()),</span>
-<span class="nc" id="L134">                        this.brandChioceBox.getValue(),</span>
-<span class="nc" id="L135">                        this.productDatePicker.getValue());</span>
-<span class="nc" id="L136">                System.out.println(newPromotionalComputer);</span>
-<span class="nc" id="L137">                eroMsgLabel.setText(&quot;&quot;);</span>
-<span class="nc" id="L138">                sumMsgLabel.setText(newPromotionalComputer.toString());</span>
-<span class="nc" id="L139">            } catch (IllegalArgumentException e)</span>
+<span class="nc" id="L143">                PromotionalComputer newPromotionalComputer = new PromotionalComputer(</span>
+<span class="nc" id="L144">                        Integer.valueOf(this.idTextField.getText()),</span>
+<span class="nc" id="L145">                        Integer.valueOf(this.stockTextField.getText()),</span>
+<span class="nc" id="L146">                        Double.parseDouble(this.priceTextField.getText()),</span>
+<span class="nc" id="L147">                        this.brandChioceBox.getValue(),</span>
+<span class="nc" id="L148">                        this.productDatePicker.getValue());</span>
+                //print the resulte message
+<span class="nc" id="L150">                System.out.println(newPromotionalComputer);</span>
+<span class="nc" id="L151">                eroMsgLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L152">                sumMsgLabel.setText(newPromotionalComputer.toString());</span>
+<span class="nc" id="L153">            } catch (IllegalArgumentException e)</span>
             {
-                //eroMsgLabel.setText(&quot;Invalid input&quot;);
-<span class="nc" id="L142">                sumMsgLabel.setText(&quot;&quot;);</span>
-<span class="nc" id="L143">                eroMsgLabel.setText(String.valueOf(e.getMessage()));</span>
+                //print the error message catch from Promotionalcomputer.java file.
+<span class="nc" id="L156">                sumMsgLabel.setText(&quot;&quot;);</span>
+<span class="nc" id="L157">                eroMsgLabel.setText(String.valueOf(e.getMessage()));</span>
               
-<span class="nc" id="L145">            }            </span>
-        }
+<span class="nc" id="L159">            }            </span>
         }
         else
         {
-<span class="nc" id="L150">            eroMsgLabel.setText(&quot;You need to set the product date!&quot;);</span>
+<span class="nc" id="L163">            eroMsgLabel.setText(&quot;You need to choose whether it is touch screen or not!&quot;);</span>
+        }   
+        }
+        else
+        {
+<span class="nc" id="L168">            eroMsgLabel.setText(&quot;You need to set the product date!&quot;);</span>
         }
     
-<span class="nc" id="L153">    }</span>
+<span class="nc" id="L171">    }</span>
 }
 
     
