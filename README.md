@@ -7,11 +7,12 @@
 Start interface
 ![](mdPics/start_interface.png)
 
-Throw exception
+
+get the result!
 ![](mdPics/throw_exception.png)
 
 
-get the result!
+Throw exception
 ![](mdPics/result.png)
 
 
