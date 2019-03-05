@@ -8,11 +8,11 @@ Start interface
 ![](mdPics/start_interface.png)
 
 Throw exception
-![](https://raw.github.com/mdPics/throw_exception.png)
+![](mdPics/throw_exception.png)
 
 
 get the result!
-![](https://raw.github.com/mdPics/result.png)
+![](mdPics/result.png)
 
 
 ## License
