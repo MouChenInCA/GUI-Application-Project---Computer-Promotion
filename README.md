@@ -5,7 +5,7 @@
 
 ## Preview
 Start interface
-![](https://raw.github.com/mdPics/start_interface.jpg)
+![](https://raw.github.com/mdPics/start_interface.png)
 
 Throw exception
 ![](https://raw.github.com/mdPics/throw_exception.png)
