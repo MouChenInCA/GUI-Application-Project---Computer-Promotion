@@ -1,7 +1,7 @@
 # JavaFX-Project---Computer-Promotion
-	Scene Builder was used to design the user interface.
-	Structured the application with the Model-View-Controller (MVC) pattern.
-	This Computer Promotion application can Help customers to calculate discounts.
+	Scene Builder was used to design the user interface.  
+	Structured the application with the Model-View-Controller (MVC) pattern.  
+	This Computer Promotion application can Help customers to calculate discounts.  
 
 ## Preview
 Start interface
